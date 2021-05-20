@@ -1,0 +1,28 @@
+
+cobol: sequential files
+---------------
+
+Sequential Files
+  - Field: This is a data item about something.
+           In a customer record,
+           it would be first name or last name
+              or customer number or date of birth and so on.
+  - Record: This is a group of fields.
+            Again, in our example above, 
+            a record would be information for a paticular customer.
+            - Each record has two aspects(面).
+              - Template: This is a general structure - That is,
+                          the individual fields and what type of date each of them holds.
+              - Instance of record:
+                          This is a record that has data.
+                          So if there is a customer account for Jane Smith, then this is an instance.
+
+Working With Files
+----------------
+  - In your COBOL code, you will then have to map the data items in the record into data types.
+    In other words, you will create PICS for text and numbers, 
+    as we've shown earlier in this course.
+    These will be put in the DATA DIVISION under the FILE SECTION.
+  - Once you bring in information, you can do computaions.
+    But it is also can create custom reports.
+    

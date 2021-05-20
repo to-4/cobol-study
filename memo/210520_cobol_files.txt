@@ -1,0 +1,48 @@
+
+cobol: files
+---------------
+
+Three Types of files
+---
+  1. Sequential files
+  2. Relative files
+  3. Indexed files
+
+  --------
+  1. sequetial file:
+     - 順ファイルのこと
+     - 個々のレコードへ順番にアクセス
+     - 最初にファイルに書き込まれた順番と同じ順番でレコードにアクセス
+     - 3種類の順ファイルがサポートされている
+       (1) レコード順 <-- default
+       (2) 行順
+       (3) プリンタ順
+
+  2. Relative files
+     - 相対ファイルのこと
+     - 各レコードをファイル内の順位（レコード1,レコード2 のように)によって識別するファイル
+     - 順番、またはランダム、どちらの方法でもアクセス可
+     - 順アクセスでファイルの次のレコードにアクセスするには、
+       READ または WRITE を実行するだけ
+     - ランダムアクセスでは、相対キーとしてデータ項目を定義し、データ項目の中で、READ または WRITE の対象となるレコードの序数を指定する必要があります
+     - 相対ファイルのレコードの物理的な位置は、そのキーから直接計算できるため、相対ファイルへのアクセスは高速です
+     - 相対ファイルを定義するには、COBOLプログラムでファイルに対して、SELECT句とORGANIZATION IS RELATIVE を指定
+     - レコードにランダムにアクセスする場合は、次のように定義する必要があります
+         - ファイルに対して SELECT 句と ACCESS MODE IS RANDOM または
+           ACCESS MODE IS DYNAMIC を指定する
+         - プログラムの作業場所節 (WORKING-STRAGE SECTION?) で相対キーを定義する
+
+      - 例えば、次のように指定する
+        SELECT RELFIL ASSIGN TO "relfil.dat"
+          ORGANIZATION IS RELATIVE
+          ACCESS MODE IS RANDOM
+          RELATIVE KEY IS RELFIL-KEY.
+        上記の例では、相対ファイルを定義している
+        アクセスモードは、ランダムであるため
+        相対キー（RELFIL-KEY)を定義する
+        ランダムアクセスの場合は、常に、ファイルからレコードを
+        読み込もうとする前に、総体キーにレコード番号を指定することが必要
+        ※ ACCESS MODE IS DYNAMIC を指定した場合
+           順アクセスとランダムアクセスの両方可能
+
+           
