@@ -1,0 +1,69 @@
+cobol: 関数定義の方法（自プログラム内）
+--------------------------------------------
+
+1. IDENTIFICATION DIVISION. では、
+   PROGRAM-ID ではなく、
+   FUNCTION-ID を用いる
+
+   ファイル末尾の、STOP RUN. も、
+   END FUNCTION [関数名]. となる
+
+2. ENVIRONMENT DIVISION. は不要
+3. DATA DIVISION. では
+
+   LINKAGE SECTION. を使って
+   引数を定義
+   例.
+   LINKAGE SECTION.
+   01 ARG-1 PIC 9(2).
+   01 RESULT PIC 9(2).
+
+4. PROCEDURE DIVISION. では、
+   DIVISION の後ろに、USING 引数, ..
+                      RETURNING 返り値の変数. を指定
+   結びに、'EXIT FUNCTION.' をつける
+
+5. 最後に、'END FUNCTION 関数名' をつける
+
+
+
+下記は、参考程度
+ところどころ間違っていると思われるため
+------------------
+reference: Chat GPT
+
+
+Q.
+write a sample program in COBOL.
+1. define a function.
+2. call the function.
+
+A.
+Sure, here is an example program in COBOL that defines and calls it:
+
+---
+IDENTIFICATION DIVISION.
+PROGRAM-ID. EXAMPLE.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+
+01 NUM1 PIC 9(2) VALUE 10.
+01 NUM2 PIC 9(2) VALUE 5.
+01 RESULT PIC 9(2).
+
+PROCEDURE DIVISION.
+
+* Define a function to add two numbers
+ADD-FUNCTION.
+    ADD NUM1, NUM2 GIVING RESULT.
+    EXIT FUNCTION.
+
+* Call the function to add two numbers
+MAIN-PROGRAM.
+    DISPLAY "Calling add function...".
+    CALL ADD-FUNCTION.
+    DISPLAY "Result of add function is " RESULT "."
+    STOP RUN.
+
+----
