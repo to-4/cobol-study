@@ -43,16 +43,16 @@
       *
 
        DATA DIVISION.
-           FILE SECTION.
-           FD TESTFILE.
-           01 TESTFILE-R.
-              05 ITEM-REC PIC 9(2). 
+       FILE SECTION.
+       FD  TESTFILE.
+       01  TESTFILE-R.
+           05 ITEM-REC PIC 9(2). 
               
-           WORKING-STORAGE SECTION.
-           01 WS-TEMP1 PIC 9(2) VALUE 01.
+       WORKING-STORAGE SECTION.
+       01  WS-TEMP1 PIC 9(2) VALUE 01.
       *
        PROCEDURE DIVISION.
-           MAIN SECTION.
+       MAIN SECTION.
            
       *    ファイルをアウトプット用にオープンする
       *    OPEN OUTPUT [ファイル変数]
@@ -71,4 +71,4 @@
       *    CLOSE [ファイル変数]
            CLOSE TESTFILE.
            
-       STOP RUN.
+           STOP RUN.

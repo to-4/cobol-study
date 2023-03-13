@@ -18,13 +18,13 @@
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        
-       01 WS-MESSAGE PIC X(30) VALUE "Hello world!.".
+       01  WS-MESSAGE PIC X(30) VALUE "Hello world!.".
        
        PROCEDURE DIVISION.
 
       * A領域(8-11カラム)に、セクション名を書く
       * 書かなくても、処理は実行されるが、書くのが作法の様子
-       MAIN-SECTION.
+       MAIN SECTION.
            PERFORM PARA-HELLO.
 
 

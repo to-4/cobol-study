@@ -11,9 +11,9 @@
        FUNCTION-ID. TEST-FUNCTION.
 
        DATA DIVISION.
-           LINKAGE SECTION.
+       LINKAGE SECTION.
        
-           01 RESULT PIC X(30) VALUE "Hello world!.".
+       01 RESULT PIC X(30) VALUE "Hello world!.".
        
        PROCEDURE DIVISION
                  RETURNING RESULT.
@@ -37,11 +37,11 @@
        ENVIRONMENT DIVISION.
        CONFIGURATION SECTION.
        REPOSITORY.
-           FUNCTION TEST-FUNCTION.
+       FUNCTION TEST-FUNCTION.
 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-           01 RESULT PIC X(30).
+       01  RESULT PIC X(30).
        
        PROCEDURE DIVISION.
        
