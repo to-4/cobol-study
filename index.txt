@@ -7,3 +7,4 @@ test210519_comp:
 test210520_files: 
 test230301_define_function: 関数定義
 test230309_define_paragraph: 段落定義
+test230313_decimal_number: 小数計算
